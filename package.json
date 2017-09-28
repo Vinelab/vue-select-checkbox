@@ -1,8 +1,8 @@
 {
-  "name": "vue-select",
-  "version": "2.2.0",
-  "description": "A native Vue.js component that provides similar functionality to Select2 without the overhead of jQuery.",
-  "author": "Jeff Sagal <sagalbot@gmail.com>",
+  "name": "vue-select-checkbox",
+  "version": "1.0.0",
+  "description": "A native Vue.js component that provides the functionality of vue-select with the addition of checkboxes to the dropdown menu.",
+  "author": "Rony Nasr <nasr.rony@gmail.com>",
   "private": false,
   "main": "dist/vue-select.js",
   "license": "MIT",
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sagalbot/vue-select.git"
+    "url": "https://github.com/RonyNasr/vue-select-checkbox.git"
   },
   "peerDependencies": {
     "vue": "2.x"
