@@ -103,4 +103,8 @@ When provided an array of objects, `vue-select` will display a single value of t
 <v-select :options="[{label: 'foo', value: 'Foo'}]"></v-select>
 ```
 
+#### Using Checkboxes in your dropdown menu
+
+`vue-select-checkbox` gives u the ability to add use checkboxes in your dropdown menby by setting the prop `checkboxed` to true (false by default)
+
 ### For more information, please visit the [vue-select documentation.](https://sagalbot.github.io/vue-select)
