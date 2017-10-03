@@ -271,7 +271,7 @@
 
       <span class="selected-tag" v-for="option in valueAsArray" v-bind:key="option.index">
         {{ getOptionLabel(option) }}
-        <button v-if="multiple" @click="deselect(option)" type="button" class="close" aria-label="Remove option">
+        <button v-if="multiple && removable" @click="deselect(option)" type="button" class="close" aria-label="Remove option">
           <span aria-hidden="true">&times;</span>
         </button>
       </span>
@@ -379,6 +379,14 @@
        * @type {Object}
        */
       multiple: {
+        type: Boolean,
+        default: false
+      },
+      /**
+       * Equivalent to the `removable` attribute on a `<select>` input.
+       * @type {Object}
+       */
+      removable: {
         type: Boolean,
         default: false
       },
