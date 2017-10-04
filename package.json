@@ -1,6 +1,6 @@
 {
-  "name": "vue-select-checkbox",
-  "version": "1.1.1",
+  "name": "vue-select-vinelab",
+  "version": "1.1.2",
   "description": "A native Vue.js component that provides the functionality of vue-select with the addition of checkboxes to the dropdown menu.",
   "author": "Rony <nasr.rony@gmail.com>",
   "private": false,
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/RonyNasr/vue-select-checkbox.git"
+    "url": "https://github.com/Vinelab/vue-select-vinelab.git"
   },
   "peerDependencies": {
     "vue": "2.x"

@@ -106,12 +106,12 @@
   /* Selected Tags */
   .v-select .selected-tag {
     color: #333;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
+    background-color: none;
+    border: none;
     border-radius: 4px;
     height: 26px;
-    margin: 4px 1px 0px 3px;
-    padding: 1px 0.25em;
+    /*margin: 4px 1px 0px 3px;*/
+    padding: 1px 1px 1px 0.25em;
     float: left;
     line-height: 24px;
   }
@@ -269,8 +269,8 @@
   <div class="dropdown v-select" :class="dropdownClasses">
     <div ref="toggle" @mousedown.prevent="toggleDropdown" class="dropdown-toggle">
 
-      <span class="selected-tag" v-for="option in valueAsArray" v-bind:key="option.index">
-        {{ getOptionLabel(option) }}
+      <span class="selected-tag" v-for="(option, index) in valueAsArray" v-bind:key="option.index">
+        {{getOptionLabel(option)}}<template v-if="index < valueAsArray.length - 1">,</template>
         <button v-if="multiple && removable" @click="deselect(option)" type="button" class="close" aria-label="Remove option">
           <span aria-hidden="true">&times;</span>
         </button>
