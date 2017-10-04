@@ -109,11 +109,11 @@
     background-color: none;
     border: none;
     border-radius: 4px;
-    height: 26px;
+    /*height: 26px;*/
     /*margin: 4px 1px 0px 3px;*/
     padding: 1px 1px 1px 0.25em;
     float: left;
-    line-height: 24px;
+    /*line-height: 24px;*/
   }
   .v-select.single .selected-tag {
     background-color: transparent;
@@ -163,7 +163,7 @@
     -moz-appearance: none;
     line-height: 1.42857143;
     font-size:1em;
-    height: 34px;
+    height: 22px;
     display: inline-block;
     border: none;
     outline: none;
