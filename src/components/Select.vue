@@ -315,7 +315,7 @@
           </a>
         </li>
         <li v-if="!filteredOptions.length" class="no-options">
-          <slot name="no-options">Sorry, no matching options.</slot>
+          <slot name="no-options">{{noOptionsMessage}}</slot>
         </li>
       </ul>
     </transition>
@@ -437,6 +437,16 @@
       label: {
         type: String,
         default: 'label'
+      },
+
+      /**
+       * Tells vue-select what to display when there are no options
+       * by default it is an empty string
+       * @type {String}
+       */
+      noOptionsMessage: {
+        type: String,
+        default: ''
       },
 
       /**
@@ -623,6 +633,7 @@
        * @return {void}
        */
       select(option) {
+        console.log(option)
         if (this.isOptionSelected(option)) {
           this.deselect(option)
         } else {
@@ -651,7 +662,7 @@
         if (this.multiple) {
           let ref = -1
           this.mutableValue.forEach((val) => {
-            if (val === option || typeof val === 'object' && val[this.label] === option[this.label]) {
+            if (val === option || typeof val === 'object' && val['value'] === option['value']) {
               ref = val
             }
           })
@@ -703,7 +714,8 @@
         if (this.multiple && this.mutableValue) {
           let selected = false
           this.mutableValue.forEach(opt => {
-            if (typeof opt === 'object' && opt[this.label] === option[this.label]) {
+            // console.log(opt)
+            if (typeof opt === 'object' && opt['value'] === option['value']) {
               selected = true
             } else if (typeof opt === 'object' && opt[this.label] === option) {
               selected = true
