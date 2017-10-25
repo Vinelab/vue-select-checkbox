@@ -633,7 +633,6 @@
        * @return {void}
        */
       select(option) {
-        console.log(option)
         if (this.isOptionSelected(option)) {
           this.deselect(option)
         } else {
@@ -714,7 +713,6 @@
         if (this.multiple && this.mutableValue) {
           let selected = false
           this.mutableValue.forEach(opt => {
-            // console.log(opt)
             if (typeof opt === 'object' && opt['value'] === option['value']) {
               selected = true
             } else if (typeof opt === 'object' && opt[this.label] === option) {
