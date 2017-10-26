@@ -534,6 +534,16 @@
       },
 
       /**
+       * flag to keep the placeholder
+       *even when something is selected
+       * @type {Boolean}
+       */
+      keepPlaceholder: {
+        type: Boolean,
+        default: false
+      },
+
+      /**
        * Sets the id of the input element.
        * @type {String}
        * @default {null}
@@ -541,6 +551,12 @@
       inputId: {
         type: String
       },
+
+      /**
+       * flag to add checkboxes
+       * to the dropdown-menu
+       * @type {Boolean}
+       */
       checkboxed: {
         type:Boolean,
         default:false
@@ -861,6 +877,8 @@
       searchPlaceholder() {
         if (this.isValueEmpty && this.placeholder) {
           return this.placeholder;
+        } else if (this.keepPlaceholder && this.placeholder) {
+          return this.placeholder
         }
       },
 
