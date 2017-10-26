@@ -878,7 +878,7 @@
         if (this.isValueEmpty && this.placeholder) {
           return this.placeholder;
         } else if (this.keepPlaceholder && this.placeholder) {
-          return this.placeholder
+          return this.placeholder;
         }
       },
 
