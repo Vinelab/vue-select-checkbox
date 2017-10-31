@@ -560,6 +560,16 @@
       checkboxed: {
         type:Boolean,
         default:false
+      },
+
+      /**
+       * flag to enable disable
+       * deselect
+       * @type {Boolean}
+       */
+      deselectable: {
+        type:Boolean,
+        default:true
       }
     },
 
@@ -674,17 +684,19 @@
        * @return {void}
        */
       deselect(option) {
-        if (this.multiple) {
-          let ref = -1
-          this.mutableValue.forEach((val) => {
-            if (val === option || typeof val === 'object' && val['value'] === option['value']) {
-              ref = val
-            }
-          })
-          var index = this.mutableValue.indexOf(ref)
-          this.mutableValue.splice(index, 1)
-        } else {
-          this.mutableValue = null
+        if (this.deselectable === true) {
+          if (this.multiple) {
+            let ref = -1
+            this.mutableValue.forEach((val) => {
+              if (val === option || typeof val === 'object' && val['value'] === option['value']) {
+                ref = val
+              }
+            })
+            var index = this.mutableValue.indexOf(ref)
+            this.mutableValue.splice(index, 1)
+          } else {
+            this.mutableValue = null
+          }
         }
       },
 
