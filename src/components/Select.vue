@@ -563,6 +563,16 @@
       },
 
       /**
+       * flag to add allow delete
+       * when backspace is clicked
+       * @type {Boolean}
+       */
+      allowBackspaceDelete: {
+        type:Boolean,
+        default:true
+      },
+
+      /**
        * flag to enable disable
        * deselect
        * @type {Boolean}
@@ -798,8 +808,10 @@
        * @return {this.value}
        */
       maybeDeleteValue() {
-        if (!this.$refs.search.value.length && this.mutableValue) {
-          return this.multiple ? this.mutableValue.pop() : this.mutableValue = null
+        if (this.allowBackspaceDelete === true) {
+          if (!this.$refs.search.value.length && this.mutableValue) {
+            return this.multiple ? this.mutableValue.pop() : this.mutableValue = null
+          }
         }
       },
 
