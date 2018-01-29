@@ -13,6 +13,7 @@
         body,
         #app {
             height: 100vh;
+            font-family: 'Roboto'
         }
 
         #app {
@@ -33,6 +34,7 @@
 
 <body>
     <div id="app">
+      <v-select :options="['CAT', 'DOG', 'COW']" :addOption="true" :close-on-select="false"></v-select>
         <v-select placeholder="default" :options="options"></v-select>
         <v-select placeholder="multiple"  multiple :options="options"></v-select>
         <v-select placeholder="multiple removable" removable multiple :options="options"></v-select>
