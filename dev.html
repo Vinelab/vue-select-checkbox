@@ -8,12 +8,13 @@
     <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.min.css" rel="stylesheet">-->
     <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <style>
         html,
         body,
         #app {
             height: 100vh;
-            font-family: 'Roboto'
+            font-family: 'Roboto', 'Helvetica', sans-serif;
         }
 
         #app {
@@ -34,17 +35,17 @@
 
 <body>
     <div id="app">
-      <v-select :options="['CAT', 'DOG', 'COW']" :addOption="true" :close-on-select="false"></v-select>
-        <v-select placeholder="default" :options="options"></v-select>
-        <v-select placeholder="multiple"  multiple :options="options"></v-select>
+      <v-select :show-tag="false" :options="['CAT', 'DOG', 'COW']" :addOption="true" :searchable="false" :close-on-select="false"></v-select>
+        <!-- <v-select placeholder="default" :options="options"></v-select> -->
+        <!-- <v-select placeholder="multiple"  multiple :options="options"></v-select> -->
         <v-select placeholder="multiple removable" removable multiple :options="options"></v-select>
-        <v-select placeholder="multiple with checkboxed" :close-on-select="false" multiple checkboxed searchable :options="options"></v-select>
-        <v-select placeholder="multiple, taggable" multiple taggable :options="options" no-drop></v-select>
-        <v-select placeholder="multiple, taggable, push-tags" multiple push-tags taggable :options="[{label: 'Foo', value: 'foo'}]"></v-select>
-        <v-select placeholder="multiple, closeOnSelect=true" multiple :options="['cat', 'dog', 'bear']"></v-select>
-        <v-select id="keepPlaceholderId" placeholder="multiple, closeOnSelect=false"  searchable :deselectable="false" multiple :close-on-select="false" :options="[{label: 'Foo', value: '1'}, {label: 'bar', value: '2'}, {label: 'Foo', value: '3'}]"></v-select>
-        <v-select placeholder="unsearchable" :options="options" :searchable="false"></v-select>
-        <v-select placeholder="search github.." label="full_name" @search="search" :options="ajaxRes"></v-select>
+        <!-- <v-select placeholder="multiple with checkboxed" :close-on-select="false" multiple checkboxed searchable :options="options"></v-select> -->
+        <!-- <v-select placeholder="multiple, taggable" multiple taggable :options="options" no-drop></v-select> -->
+        <!-- <v-select placeholder="multiple, taggable, push-tags" multiple push-tags taggable :options="[{label: 'Foo', value: 'foo'}]"></v-select> -->
+        <!-- <v-select placeholder="multiple, closeOnSelect=true" multiple :options="['cat', 'dog', 'bear']"></v-select> -->
+        <!-- <v-select id="keepPlaceholderId" placeholder="multiple, closeOnSelect=false"  searchable :deselectable="false" multiple :close-on-select="false" :options="[{label: 'Foo', value: '1'}, {label: 'bar', value: '2'}, {label: 'Foo', value: '3'}]"></v-select> -->
+        <!-- <v-select placeholder="unsearchable" :options="options" :searchable="false"></v-select> -->
+        <!-- <v-select placeholder="search github.." label="full_name" @search="search" :options="ajaxRes"></v-select> -->
     </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <style>
   .v-select {
     position: relative;
-    font-family: sans-serif;
+    font-family: 'Roboto', 'Helvetica', sans-serif;
   }
   .v-select,
   .v-select * {
@@ -12,7 +12,7 @@
   /* Open Indicator */
   .v-select .open-indicator {
     position: absolute;
-    bottom: 6px;
+    bottom: 0px;
     right: 10px;
     display: inline-block;
     cursor: pointer;
@@ -55,8 +55,7 @@
     display: block;
     padding: 0;
     background: none;
-    border: 1px solid rgba(60, 60, 60, .26);
-    border-radius: 4px;
+    border-bottom: 1px solid rgba(60, 60, 60, .26);
     white-space: normal;
     transition: border-radius .25s;
   }
@@ -268,13 +267,17 @@
 <template>
   <div class="dropdown v-select" :class="dropdownClasses">
     <div ref="toggle" @mousedown.prevent="toggleDropdown" class="dropdown-toggle">
-
-      <span class="selected-tag" v-for="(option, index) in valueAsArray" v-bind:key="option.index">
+    <template v-if="showTag">
+      <span class="selected-tag" @click.prevent="toggleDropdown" v-for="(option, index) in valueAsArray" v-bind:key="option.index">
         {{getOptionLabel(option)}}<template v-if="index < valueAsArray.length - 1">,</template>
-        <button v-if="multiple && removable" @click="deselect(option)" type="button" class="close" aria-label="Remove option">
+        <button v-if="multiple && removable"  @click="deselect(option)" type="button" class="close" aria-label="Remove option">
           <span aria-hidden="true">&times;</span>
         </button>
       </span>
+    </template>
+    <template v-else v-for="(option, index) in valueAsArray">
+      {{getOptionLabel(option)}}
+    </template>
 
       <input
               ref="search"
@@ -370,6 +373,15 @@
        * @type {Boolean}
        */
       searchable: {
+        type: Boolean,
+        default: true
+      },
+
+      /**
+       * Enable/disable showing tag
+       * @type {Boolean}
+       */
+      showTag: {
         type: Boolean,
         default: true
       },
