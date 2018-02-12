@@ -29,7 +29,7 @@
 Install the package. _You should install `vue-select@1.3.3` for use with vue `~1.0`._
 
 ```bash
-$ npm install vue-select
+$ npm install vue-select-vinelab
 ```
 
 Register the component
