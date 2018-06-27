@@ -1,6 +1,6 @@
 {
   "name": "vue-select-vinelab",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "A native Vue.js component that provides the functionality of vue-select with the addition of checkboxes to the dropdown menu.",
   "author": "Rony <nasr.rony@gmail.com>",
   "private": false,

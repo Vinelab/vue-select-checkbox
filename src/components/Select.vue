@@ -267,11 +267,11 @@
 <template>
   <div class="dropdown v-select" :class="dropdownClasses">
     <div ref="toggle" @mousedown.prevent="toggleDropdown" class="dropdown-toggle" style="display: flex; justify-content: space-between">
-    <template v-if="showTag">
+    <template v-if="!showTag">
       <div style="width: 90%">
         <span class="selected-tag" @click.prevent="toggleDropdown" v-for="(option, index) in valueAsArray" v-bind:key="option.index">
           {{getOptionLabel(option)}}<template v-if="index < valueAsArray.length - 1">,</template>
-          <button v-if="multiple && removable"  @click="deselect(option)" type="button" class="close" aria-label="Remove option">
+          <button v-if="multiple && removable" @click="deselect(option)" type="button" class="close" aria-label="Remove option">
             <span aria-hidden="true">&times;</span>
           </button>
         </span>
