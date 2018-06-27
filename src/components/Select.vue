@@ -11,7 +11,7 @@
   }
   /* Open Indicator */
   .v-select .open-indicator {
-    position: absolute;
+    /*position: absolute;*/
     bottom: 0px;
     right: 10px;
     display: inline-block;
@@ -266,17 +266,24 @@
 
 <template>
   <div class="dropdown v-select" :class="dropdownClasses">
-    <div ref="toggle" @mousedown.prevent="toggleDropdown" class="dropdown-toggle">
+    <div ref="toggle" @mousedown.prevent="toggleDropdown" class="dropdown-toggle" style="display: flex; justify-content: space-between">
     <template v-if="showTag">
-      <span class="selected-tag" @click.prevent="toggleDropdown" v-for="(option, index) in valueAsArray" v-bind:key="option.index">
-        {{getOptionLabel(option)}}<template v-if="index < valueAsArray.length - 1">,</template>
-        <button v-if="multiple && removable"  @click="deselect(option)" type="button" class="close" aria-label="Remove option">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </span>
+      <div style="width: 90%">
+        <span class="selected-tag" @click.prevent="toggleDropdown" v-for="(option, index) in valueAsArray" v-bind:key="option.index">
+          {{getOptionLabel(option)}}<template v-if="index < valueAsArray.length - 1">,</template>
+          <button v-if="multiple && removable"  @click="deselect(option)" type="button" class="close" aria-label="Remove option">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </span>
+      </div>
     </template>
     <template v-else v-for="(option, index) in valueAsArray">
-      {{getOptionLabel(option)}}
+      <template v-if="index === valueAsArray.length - 1">
+        {{getOptionLabel(option)}}
+      </template>
+      <template v-else>
+        {{getOptionLabel(option)}},
+      </template>
     </template>
 
       <input
@@ -296,9 +303,10 @@
               :style="{ width: isValueEmpty ? '100%' : 'auto' }"
               :id="inputId"
               aria-label="Search for option"
+              style="width: 1px"
       >
 
-      <i v-if="!noDrop" ref="openIndicator" role="presentation" class="open-indicator"></i>
+      <i v-if="!noDrop" ref="openIndicator" role="presentation" class="open-indicator" style="width: 10%"></i>
 
       <slot name="spinner">
         <div class="spinner" v-show="mutableLoading">Loading...</div>
