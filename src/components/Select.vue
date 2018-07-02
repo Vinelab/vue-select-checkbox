@@ -277,6 +277,9 @@
         </span>
       </div>
     </template>
+    <template v-else-if="fullWidth">
+
+    </template>
     <template v-else v-for="(option, index) in valueAsArray">
       <template v-if="index === valueAsArray.length - 1">
         {{getOptionLabel(option)}}
@@ -390,6 +393,15 @@
        * @type {Boolean}
        */
       showTag: {
+        type: Boolean,
+        default: true
+      },
+
+      /**
+       * make the search field full width
+       * @type {Boolean}
+       */
+      fullWidth: {
         type: Boolean,
         default: true
       },
